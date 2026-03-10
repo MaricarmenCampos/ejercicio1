@@ -1,0 +1,41 @@
+## ── .NET ──────────────────────────────────────────
+# Carpetas de compilación
+bin/
+obj/
+
+# Archivos de publicación
+publish/
+out/
+
+# Archivos de cobertura de código (se usarán en el Día 3)
+coverage/
+*.cobertura.xml
+TestResults/
+
+## ── IDEs ──────────────────────────────────────────
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+
+# VS Code (configuración personal, no de proyecto)
+# Nota: .vscode/settings.json SÍ puede commitearse si tiene config de equipo
+.vscode/launch.json
+.vscode/*.code-workspace
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+## ── Sistema operativo ─────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## ── Secretos y entorno ───────────────────────────
+# Nunca commitear appsettings con datos reales de producción
+appsettings.Production.json
+*.env
+.env.*
+secrets.json
