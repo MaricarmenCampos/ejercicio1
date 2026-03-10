@@ -4,7 +4,7 @@ public class ErrorViewModel
 {
     public string? RequestId { get; set; }
 
-    public string? Address { get; set; }
+    public string? Address1 { get; set; }
 
     public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 }
