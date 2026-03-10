@@ -1,0 +1,31 @@
+name: CI -Build
+on:
+  fork
+
+env:
+  DOTNET_VERSION: "10.0.x"
+  BUILD_CONFIGURATION: "Release"      
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mensaje inicial
+        run: echo "Iniciando workflows de CI"
+      - name: Checkout del código
+        uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Verificar la version de .NET
+        run: dotnet --version
+      - name: Build del proyecto
+        id: build-step
+        run: dotnet build src/Api/Api.csproj --configuration ${{ env.BUILD_CONFIGURATION }}
+        continue-on-error: true
+      - name: Notifica build failed
+        if: steps.build-step.outcome == 'failure'
+        run: echo "El build fallo "
+      - name: Mensaje final
+        run: echo "Workflow completado con exito "
